@@ -6,7 +6,7 @@
 # < IT at all in part of recovering from illness, so it is more like training to get my brain back on track for new even >
 # < more difficult challenges
 
-# LinkedIn https://www.linkedin.com/in/leandro-ambrosio/
+# LinkedIn: https://www.linkedin.com/in/leandro-ambrosio/
     
     # Start Apache2 web server
     service apache2 start
