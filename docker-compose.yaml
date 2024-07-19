@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  teampass:
+    image: leandroaambrosio/teampass
+    container_name: teampass
+    restart: always
+    ports:
+      - "8080:80"
+      - "4433:443"
+    hostname: passd.lasolucoes.net
+    environment:
+      VIRTUAL_HOST: passd.lasolucoes.net
+      LETSENCRYPT_EMAIL: ti@bng-es.com.br
+      LETSENCRYPT_HOST: passd.lasolucoes.net
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.32.3  # Assigning the fixed IP address to teampass service
+    volumes:
+      - teampass_data:/var/www/html/teampass  # Adjust the path inside the container as necessary
+
+  mysqldb:
+    image: leandroaambrosio/mysql:5.7
+    container_name: teampass_db
+    restart: always
+    environment:
+      MYSQL_USER: 'teampassdb'
+      MYSQL_DATABASE: 'teampassdb'
+      MYSQL_ROOT_PASSWORD: 'senha'
+      MYSQL_PASSWORD: 'senha'
+      TZ: 'America/Sao_Paulo'
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.32.2  # Specify the fixed IP address here
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  teampass_data:
+  mysql_data:
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.32.0/24
