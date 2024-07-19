@@ -4,15 +4,13 @@
 # < IT at all in part of recovering from illness, so it is more like training to get my brain back on track for new even >
 # < more difficult challenges
 
-# YouTube: https://www.youtube.com/@valters_eu
-# Twitter: https://twitter.com/valters_eu
-# Website: https://www.valters.eu
+# LinkedIn https://www.linkedin.com/in/leandro-ambrosio/
 
 # We will be using Ubuntu's latest docker image
 FROM ubuntu:latest
 # Just some information
-ENV MAINTAINER https://www.valters.eu
-ENV maintainer="docker@valters.eu"
+ENV MAINTAINER 
+ENV maintainer="leandro.aambrosio@gmail.com"
 
 # Let's install UTF8 Support in the Docker container
 RUN apt-get clean && apt-get update && apt-get install -y locales
