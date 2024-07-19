@@ -12,6 +12,7 @@ Replace the domain name from mysubdomain.domain.com with your domain or subdomai
 docker run --name mysubdomain.domain.com --restart always --publish-all -p 8080:80 -p 4433:443 --hostname=mysubdomain.domain.com -e VIRTUAL_HOST=mysubdomain.domain.com -e LETSENCRYPT_EMAIL=somemail@somedomainmail.com -e LETSENCRYPT_HOST=mysubdomain.domain.com -d leandroaambrosio/teampass
 ```
 <br>
+
 ```
 version: '3.8'
 
@@ -65,7 +66,8 @@ networks:
       config:
         - subnet: 192.168.32.0/24
 ```
-<br><br>
+
+<br>
 Siga para análises mais interessantes sobre Infraestrutura, Cloud e Automation<br>
 Docker Hub image: https://hub.docker.com/r/leandroaambrosio/teampass <br>
 
